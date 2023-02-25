@@ -1,0 +1,11 @@
+- name: is started wlp server
+  shell: "{{ __wlp_install_location }}/wlp/bin/server status {{ __server_name }}"
+  ignore_errors: true
+  changed_when: no
+  failed_when: false
+  register: result
+
+- name: start wlp server
+  shell: "nohup {{ __wlp_install_location }}/wlp/bin/server start {{ __server_name }}"
+  register: result
+  when: result.rc == 1

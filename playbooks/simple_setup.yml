@@ -1,0 +1,18 @@
+---
+- hosts: targetserver
+  gather_facts: no
+  vars:
+    #repository_url: http://127.0.0.1
+    #server_host: 127.0.0.1
+    #wlp_install_location: "/opt/ibm"
+    #server_name: "defaultServer"
+    #server_httpport: 9080
+    #$server_httpsport: 9443
+    wlp_archive_location: "{{ repository_url }}/ibm/wlp/wlp-webProfile8-java8-linux-x86_64-23.0.0.1.zip"
+    war_location: "{{ repository_url }}/sample.war"
+
+  roles:
+    - roles/wlp-install
+    - roles/wlp-server-create
+    - roles/wlp-server-start
+    - roles/wlp-server-deploy

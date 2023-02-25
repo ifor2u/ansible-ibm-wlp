@@ -1,0 +1,3 @@
+---
+__wlp_archive_location: "{{ wlp_archive_location | default('unkown_wlp_archive_location') }}"
+__wlp_install_location: "{{ wlp_install_location | default('/opt/ibm') }}"

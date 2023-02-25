@@ -1,0 +1,3 @@
+- name: deploy war
+  #copy: src={{ war_location }} dest="{{ __wlp_install_location }}/wlp/usr/servers/{{ __server_name }}/dropins/{{ war_location.split("/") | last }}"
+  get_url: url={{ war_location }} dest="{{ __wlp_install_location }}/wlp/usr/servers/{{ __server_name }}/dropins/{{ war_location.split("/") | last }}"

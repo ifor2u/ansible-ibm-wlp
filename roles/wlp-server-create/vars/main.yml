@@ -1,0 +1,6 @@
+---
+__server_host: "{{ server_host | default('') }}"
+__server_name: "{{ server_name | default('defaultServer') }}"
+__server_httpport: "{{ server_httpport | default('9080') }}"
+__server_httpsport: "{{ server_httpsport | default('9443') }}"
+__wlp_install_location: "{{ wlp_install_location | default('/opt/ibm') }}"

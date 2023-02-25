@@ -1,0 +1,6 @@
+---
+- name: "create install directory"
+  file: path={{ __wlp_install_location }} state=directory
+
+- name: "unarchive wlp archive"
+  unarchive: src={{ __wlp_archive_location }} dest={{ __wlp_install_location }} remote_src=yes

@@ -1,0 +1,14 @@
+---
+- name: "check server.xml"
+  stat: path={{ __wlp_install_location }}/wlp/usr/servers/{{ __server_name }}/server.xml
+  failed_when: false
+  ignore_errors: true
+  register: serverxml
+
+- name: "create wlp server"
+  shell: "{{ __wlp_install_location }}/wlp/bin/server create {{ __server_name }}"
+  when: not serverxml.stat.exists
+
+- name: "deploy server.xml"
+  template: src=server.xml.j2 dest={{ __wlp_install_location }}/wlp/usr/servers/{{ __server_name }}/server.xml
+
